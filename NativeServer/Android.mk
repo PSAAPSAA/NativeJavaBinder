@@ -12,6 +12,8 @@ LOCAL_SRC_FILES := \
 
 LOCAL_SHARED_LIBRARIES:= libcutils libutils libbinder
 
+LOCAL_LDLIBS := -lm -llog
+
 LOCAL_MODULE := TestBinderService
 
 include $(BUILD_EXECUTABLE)

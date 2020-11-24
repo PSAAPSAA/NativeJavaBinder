@@ -33,7 +33,8 @@ class BpMyAidlTestInterface : public BpInterface<IMyAidlTestInterface>{
         virtual void setCallBack(const sp<IMyAidlTestCallback>& callback){
              Parcel data;
             data.writeInterfaceToken(BpMyAidlTestInterface::getInterfaceDescriptor());  
-            data.writeStrongBinder(callback->asBinder());
+            //data.writeStrongBinder(callback->asBinder());
+	    data.writeStrongBinder(asBinder(callback));
             Parcel reply; 
             remote()->transact(SET_CALLBACK, data, &reply);
             int32_t exception = reply.readExceptionCode();
